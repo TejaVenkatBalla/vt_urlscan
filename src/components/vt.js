@@ -60,7 +60,7 @@ const VirusTotalScanner = () => {
             setResult(data);
             setAnalysisId(null);
           }
-          setScansDone(data.data.attributes.results.total);
+        //   setScansDone(data.data.attributes.results.total);
         })
         .catch(error => {
           console.error(error);
