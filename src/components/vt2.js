@@ -1,5 +1,3 @@
-import React, { useState, useEffect } from 'react';
-
 const API_KEY = 'ee9a95de89da158a7983bfe95d3f54d5027a0f951d4b16ab0438bb04e25285f6';
 
 const VirusTotalScanner2 = () => {
@@ -18,12 +16,13 @@ const VirusTotalScanner2 = () => {
       headers: {
         'x-apikey': API_KEY,
         accept: 'application/json',
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'Access-Control-Allow-Origin': '*' // Add Access-Control-Allow-Origin header
       },
       body: JSON.stringify({
         url: url
       }),
-      mode: 'no-cors' // set mode to 'no-cors'
+      mode: 'cors' // set mode to 'cors'
     };
 
     fetch(`https://www.virustotal.com/api/v3/urls?url=${url}`, options)
@@ -49,9 +48,10 @@ const VirusTotalScanner2 = () => {
         method: 'GET',
         headers: {
           'x-apikey': API_KEY,
-          accept: 'application/json'
+          accept: 'application/json',
+          'Access-Control-Allow-Origin': '*' // Add Access-Control-Allow-Origin header
         },
-        mode: 'no-cors' // set mode to 'no-cors'
+        mode: 'cors' // set mode to 'cors'
       };
 
       fetch(`https://www.virustotal.com/api/v3/analyses/${analysisId}`, options)
@@ -66,7 +66,6 @@ const VirusTotalScanner2 = () => {
           console.error(error);
         });
     }
-    
 
     const intervalId = setInterval(checkScanStatus, 5000);
 
@@ -94,7 +93,6 @@ const VirusTotalScanner2 = () => {
             :
             <div>
               <p>The URL is safe</p>
-              
             </div>
           }
         </div>
