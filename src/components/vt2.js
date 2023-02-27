@@ -2,12 +2,11 @@ import React, { useState, useEffect } from 'react';
 
 const API_KEY = 'ee9a95de89da158a7983bfe95d3f54d5027a0f951d4b16ab0438bb04e25285f6';
 
-const VirusTotalScanner = () => {
+const VirusTotalScanner2 = () => {
   const [url, setUrl] = useState('');
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
   const [analysisId, setAnalysisId] = useState(null);
-//   const [scansDone, setScansDone] = useState(0);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -23,7 +22,8 @@ const VirusTotalScanner = () => {
       },
       body: JSON.stringify({
         url: url
-      })
+      }),
+      mode: 'no-cors' // set mode to 'no-cors'
     };
 
     fetch(`https://www.virustotal.com/api/v3/urls?url=${url}`, options)
@@ -50,7 +50,8 @@ const VirusTotalScanner = () => {
         headers: {
           'x-apikey': API_KEY,
           accept: 'application/json'
-        }
+        },
+        mode: 'no-cors' // set mode to 'no-cors'
       };
 
       fetch(`https://www.virustotal.com/api/v3/analyses/${analysisId}`, options)
@@ -60,7 +61,6 @@ const VirusTotalScanner = () => {
             setResult(data);
             setAnalysisId(null);
           }
-        //   setScansDone(data.data.attributes.results.total);
         })
         .catch(error => {
           console.error(error);
@@ -102,4 +102,4 @@ const VirusTotalScanner = () => {
   );
 };
 
-export default VirusTotalScanner;
+export default VirusTotalScanner2;
