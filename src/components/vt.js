@@ -7,7 +7,7 @@ const VirusTotalScanner = () => {
   const [result, setResult] = useState(null);
   const [loading, setLoading] = useState(false);
   const [analysisId, setAnalysisId] = useState(null);
-  const [scansDone, setScansDone] = useState(0);
+//   const [scansDone, setScansDone] = useState(0);
 
   const handleSubmit = (event) => {
     event.preventDefault();
