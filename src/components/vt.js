@@ -9,6 +9,10 @@ const VirusTotalScanner = () => {
   const [analysisId, setAnalysisId] = useState(null);
   const [scansDone, setScansDone] = useState(0);
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setLoading(true);
+    setResult(null);
 
     const options = {
       method: 'POST',
@@ -77,6 +81,7 @@ const VirusTotalScanner = () => {
           <input type="text" value={url} onChange={event => setUrl(event.target.value)} />
         </label>
         <button type="submit" disabled={loading}>Scan</button>
+        <p>The scan will take few seconds</p>
       </form>
       {loading && <p>Scanning...</p>}
       {result && (
