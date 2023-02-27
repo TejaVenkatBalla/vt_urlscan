@@ -66,6 +66,7 @@ const VirusTotalScanner2 = () => {
           console.error(error);
         });
     }
+    
 
     const intervalId = setInterval(checkScanStatus, 5000);
 
