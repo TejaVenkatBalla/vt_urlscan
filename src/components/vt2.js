@@ -15,14 +15,15 @@ const VirusTotalScanner2 = () => {
       method: 'POST',
       headers: {
         'x-apikey': API_KEY,
-        accept: 'application/json',
-        'content-type':'application/x-www-form-urlencoded',
-        'Access-Control-Allow-Origin': 'https://www.virustotal.com'
-        },
+        'accept': 'application/json',
+        'content-type': 'application/x-www-form-urlencoded',
+        // Remove this line: 'Access-Control-Allow-Origin': 'https://www.virustotal.com'
+      },
       body: JSON.stringify({
         url: url
       }),
-      mode: 'cors' // set mode to 'cors'
+      mode: 'cors',
+      credentials: 'omit', // add this line to avoid a CORS error
     };
 
     fetch(`https://www.virustotal.com/api/v3/urls?url=${url}`, options)
