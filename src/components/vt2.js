@@ -16,7 +16,8 @@ const VirusTotalScanner2 = () => {
       headers: {
         'x-apikey': API_KEY,
         accept: 'application/json',
-        'content-type':'application/x-www-form-urlencoded'
+        'content-type':'application/x-www-form-urlencoded',
+        'Access-Control-Allow-Origin': '*'
         },
       body: JSON.stringify({
         url: url
@@ -48,7 +49,7 @@ const VirusTotalScanner2 = () => {
         headers: {
           'x-apikey': API_KEY,
           accept: 'application/json',
-          'Access-Control-Allow-Origin': '*' // Add Access-Control-Allow-Origin header
+          // 'Access-Control-Allow-Origin': '*' // Add Access-Control-Allow-Origin header
         },
         mode: 'cors' // set mode to 'cors'
       };
