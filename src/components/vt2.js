@@ -17,16 +17,15 @@ const VirusTotalScanner2 = () => {
         'x-apikey': API_KEY,
         'accept': 'application/json',
         'content-type': 'application/x-www-form-urlencoded',
-        // Remove this line: 'Access-Control-Allow-Origin': 'https://www.virustotal.com'
       },
       body: JSON.stringify({
         url: url
       }),
       mode: 'cors',
-      credentials: 'omit', // add this line to avoid a CORS error
+      credentials: 'omit',
     };
 
-    fetch(`https://www.virustotal.com/api/v3/urls?url=${url}`, options)
+    fetch(`https://www.virustotal.com/api/v3/urls?url=${encodeURIComponent(url)}`, options)
       .then(response => response.json())
       .then(data => {
         setAnalysisId(data.data.id);
@@ -50,9 +49,8 @@ const VirusTotalScanner2 = () => {
         headers: {
           'x-apikey': API_KEY,
           accept: 'application/json',
-          // 'Access-Control-Allow-Origin': '*' // Add Access-Control-Allow-Origin header
         },
-        mode: 'cors' // set mode to 'cors'
+        mode: 'cors'
       };
 
       fetch(`https://www.virustotal.com/api/v3/analyses/${analysisId}`, options)
