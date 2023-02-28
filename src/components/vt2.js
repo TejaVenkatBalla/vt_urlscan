@@ -17,7 +17,7 @@ const VirusTotalScanner2 = () => {
         'x-apikey': API_KEY,
         accept: 'application/json',
         'content-type':'application/x-www-form-urlencoded',
-        'Access-Control-Allow-Origin': '*'
+        'Access-Control-Allow-Origin': 'https://www.virustotal.com'
         },
       body: JSON.stringify({
         url: url
