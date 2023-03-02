@@ -1,12 +1,13 @@
 import './App.css';
+import VirusTotalScanner from './components/vt';
 
-import MyComponent from './components/vt2';
+
 
 function App() {
   return (
     <div className="App">
       hello
-      <MyComponent />
+      <VirusTotalScanner />
     </div>
   );
 }
