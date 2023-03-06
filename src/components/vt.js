@@ -26,7 +26,7 @@ const VirusTotalScanner = () => {
       })
     };
 
-    fetch(`https://www.virustotal.com/api/v3/urls?url=${url}`, options)
+    fetch(`https://cors-anywhere.herokuapp.com/https://www.virustotal.com/api/v3/urls?url=${url}`, options)
       .then(response => response.json())
       .then(data => {
         setAnalysisId(data.data.id);
